@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for user in users %}
+  <p>{{user.first_name}} {{user.last_name}}</p>
+  <form action="{{ url_for('users.show', id=user.id) }}?_method=DELETE" method="POST">
+    <button type="submit">Delete this user!</button>
+  </form>
+{% endfor %}
+
+{% endblock %}

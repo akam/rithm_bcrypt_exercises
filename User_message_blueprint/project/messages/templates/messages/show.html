@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Welcome to the show page!</h1>
+    <p>Message:</p>
+    <p>{{message.message}}</p>
+    <p>Delete me?</p>
+
+    <form method="POST" action="{{url_for('messages.show', id=user.id, mid=message.id)}}?_method=DELETE">
+        <input type="submit" value="X">
+    </form>
+
+{% endblock %}

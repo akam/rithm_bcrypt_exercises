@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for message in messages %}
+    <p>
+        {{message.message}} says {{message.user.first_name}}
+        <br>
+    </p>
+{% endfor %}
+
+{% endblock %}
