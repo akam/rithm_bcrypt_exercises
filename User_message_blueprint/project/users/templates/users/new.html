@@ -14,6 +14,17 @@
       {% endif %}
     </span>
   </p>
+    <p>
+    {{ form.password(placeholder="Password") }}
+    <span>
+      {% if form.password.errors %}
+        {% for error in form.password.errors %}
+          {{ error }}
+        {% endfor %}
+      {% endif %}
+    </span>
+  </p>
+  <p>
   <p>
     {{ form.email(placeholder="E-mail") }}
     <span>

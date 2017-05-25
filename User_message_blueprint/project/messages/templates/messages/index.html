@@ -1,12 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+<h2>{{user.username}}'s messages</h2>
 {% for message in messages %}
+    
     <p>
-        {{message.message}} says {{message.user.first_name}}
+        {{message.message}} says {{message.user.first_name}} <a href="{{url_for('messages.edit', id=message.user.id, mid=message.id)}}">edit</a>
         <br>
     </p>
+    
 {% endfor %}
-
+    <form action="{{url_for('messages.new', id=user.id)}}">
+      <input type="submit" value="Add new message">
+    </form>
 {% endblock %}

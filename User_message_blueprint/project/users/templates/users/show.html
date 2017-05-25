@@ -1,9 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>Welcome to the show page!</h1>
-    <p>Delete me?</p>
+    <h1>{{user.username}}'s details:</h1>
+    <li>First name: {{user.first_name}}</li>
+    <li>Last name: {{user.last_name}}</li>
+    <li>E-mail: {{user.email}}</li>
 
+
+    <form action="{{url_for('users.edit', id=user.id)}}">
+        <input type="submit" value="Edit user">
+    </form>
     <form method="POST" action="{{url_for('users.show', id=user.id)}}?_method=DELETE">
-        <input type="submit" value="X">
+        <input type="submit" value="Delete user">
     </form>
 {% endblock %}
